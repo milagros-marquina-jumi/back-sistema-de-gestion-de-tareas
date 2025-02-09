@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: bd_tareas
+    ports:
+      - "5433:5432" 
+    networks:
+      - app-network
+    restart: always
+
+  springboot-app:
+    build:
+      context: .
+      dockerfile: Dockerfile  
+    container_name: backend-tareas-app
+    ports:
+      - "9090:9090" 
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/bd_tareas  
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 123456
+      JWT_SECRET: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIZF9zUzoKokFoAUXj70pnEKCcdh98wVP5xBcKhsVUP8pAZFkustM87khx/2G8GY20OMGBdm52v5dtDDXilyuDMCAwEAAQ==
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+    restart: always
+
+  angular-app:
+    build:
+      context: ../frontend-tareas  
+    container_name: angular-app-container
+    ports:
+      - "4200:80" 
+    networks:
+      - app-network
+    restart: always
+
+networks:
+  app-network:
+    driver: bridge
