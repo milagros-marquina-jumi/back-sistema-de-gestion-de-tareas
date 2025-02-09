@@ -1,0 +1,98 @@
+{
+	"info": {
+		"_postman_id": "5e28c9cc-b66e-4cab-9d80-eccfa7ebc597",
+		"name": "APIs Tareas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "20634270"
+	},
+	"item": [
+		{
+			"name": "tareas",
+			"item": [
+				{
+					"name": "Listar todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/api/tareas"
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:9090/api/tareas/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Crear",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "seguridad",
+			"item": [
+				{
+					"name": "Registro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Milagros\",\r\n    \"correo\": \"milagros@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/auth/registro"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin@gmail.com\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:9090/api/auth/login"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
