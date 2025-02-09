@@ -1,4 +1,4 @@
-//// Para poder ejecutar en un Docker ////
+# Para poder ejecutar en un Docker
 
 1. Ir a frontend y ejecutar en el CMD:
    npm i
@@ -11,3 +11,5 @@
 
 3. Copiar URL en el navegador:
    http://localhost:4200/
+
+https://github.com/user-attachments/assets/051687db-3e7d-4f7c-8a86-78a4fcf56781
